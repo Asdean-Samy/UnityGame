@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 84807545}
   m_Layer: 0
   m_Name: Cube
-  m_TagString: Ground
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -835,6 +835,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: duality_stairs_up
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 32207cab52db54843a6afd045faed0d4, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1229,8 +1233,8 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 10.5, y: 0, z: -1.44}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 546198683}
   m_Father: {fileID: 0}
@@ -1314,6 +1318,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: duality-plateform0
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: abaa85eec28bca94890c98f52e747c3b, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1371,6 +1379,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: duality_stairs_up_left
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d3969bc3502b8e5438a08fd94137fa4d, type: 3}
+      propertyPath: m_TagString
+      value: Ground
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1427,6 +1439,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: abaa85eec28bca94890c98f52e747c3b, type: 3}
       propertyPath: m_Name
       value: duality-plateform0 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: abaa85eec28bca94890c98f52e747c3b, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1691,6 +1707,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 4d2db186af1617d42813052a1c19075a, type: 3}
       propertyPath: m_Name
       value: duality_2plateforms
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4d2db186af1617d42813052a1c19075a, type: 3}
+      propertyPath: m_TagString
+      value: Ground
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2196,6 +2216,18 @@ PrefabInstance:
     m_TransformParent: {fileID: 834043824}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: cf4095d33a2fca34f8437bdfa890c467, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cf4095d33a2fca34f8437bdfa890c467, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cf4095d33a2fca34f8437bdfa890c467, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cf4095d33a2fca34f8437bdfa890c467, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.020775082
       objectReference: {fileID: 0}
@@ -2234,6 +2266,10 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: cf4095d33a2fca34f8437bdfa890c467, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: cf4095d33a2fca34f8437bdfa890c467, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: cf4095d33a2fca34f8437bdfa890c467, type: 3}
       propertyPath: m_Name

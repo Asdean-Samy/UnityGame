@@ -3,56 +3,55 @@ using UnityEngine;
 public class ChataigneMovement : MonoBehaviour
 {
     public float speed = 5f;
-    public float jumpForce = 7f;
+    public float jumpForce = 5f;
 
     float inputX = 0f;
     float inputY = 0f;
 
     float lastMessageTime;
 
-    Rigidbody rb;
     bool isGrounded = true;
-
-    void Awake()
-    {
-        rb = GetComponent<Rigidbody>();
-    }
+    float verticalVelocity = 0f;
+    float gravity = -9.81f;
 
     void Update()
     {
-        // Stop si plus de signal
+        // STOP AUTOMATIQUE si plus de signal
         if (Time.time - lastMessageTime > 0.2f)
         {
             inputX = 0f;
             inputY = 0f;
         }
 
-        Debug.Log("X: " + inputX + " | Y: " + inputY);
-
-        // Déplacement gauche / droite
-        Vector3 move = new Vector3(inputX, 0f, 0f);
-        transform.Translate(move * speed * Time.deltaTime);
-
-        // Rotation du perso (regarde la direction)
+        // ROTATION (gauche / droite)
         if (inputX > 0.1f)
             transform.localScale = new Vector3(1f, 1f, 1f);
         else if (inputX < -0.1f)
             transform.localScale = new Vector3(-1f, 1f, 1f);
 
-        // Jump 
+        // JUMP (déclenchement unique)
         if (inputY > 0.5f && isGrounded)
         {
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            verticalVelocity = jumpForce;
             isGrounded = false;
         }
-    }
 
-    void OnCollisionEnter(Collision collision)
-    {
-        // détecte le sol
-        if (collision.gameObject.CompareTag("Ground"))
+        // GRAVITÉ
+        verticalVelocity += gravity * Time.deltaTime;
+
+        // MOUVEMENT FINAL
+        Vector3 move = new Vector3(inputX, verticalVelocity, 0f);
+        transform.Translate(move * speed * Time.deltaTime);
+
+        // RESET SOL (simple)
+        if (transform.position.y <= 0f)
         {
             isGrounded = true;
+            verticalVelocity = 0f;
+
+            Vector3 pos = transform.position;
+            pos.y = 0f;
+            transform.position = pos;
         }
     }
 
@@ -66,5 +65,11 @@ public class ChataigneMovement : MonoBehaviour
     {
         inputY = Mathf.Clamp(value, -1f, 1f);
         lastMessageTime = Time.time;
+    }
+
+    public void Move(Vector2 direction)
+    {
+        OnMoveX(direction.x);
+        OnMoveY(direction.y);
     }
 }
