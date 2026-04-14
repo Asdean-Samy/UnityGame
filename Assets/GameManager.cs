@@ -1,21 +1,37 @@
 using UnityEngine;
+using TMPro;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
-
-    public GameObject winText; // UI à afficher
+    public TextMeshProUGUI victoryText;
+    public AudioClip victorySound;
+    private bool gameWon = false; // ✅ track if game is won
 
     void Awake()
     {
         instance = this;
     }
 
+    void Start()
+    {
+        victoryText.gameObject.SetActive(false);
+    }
+
+    void Update()
+    {
+        // ✅ Only allow reset after winning
+        if (gameWon && Input.GetKeyDown(KeyCode.Return))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+    }
+
     public void WinGame()
     {
-        Debug.Log("VICTOIRE !");
-
-        winText.SetActive(true); // affiche le message
-        Time.timeScale = 0f;     // pause le jeu
+        victoryText.gameObject.SetActive(true);
+        AudioSource.PlayClipAtPoint(victorySound, Camera.main.transform.position);
+        gameWon = true; // ✅ enable the reset
     }
 }
