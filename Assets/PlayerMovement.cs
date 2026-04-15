@@ -29,7 +29,7 @@ public class Player2DMovement : MonoBehaviour
 
 void Update()
 {
-// ✅ Exclude the capsule's own layer from the check
+// Exclude the capsule's own layer from the check
     int layerMask = ~LayerMask.GetMask("Player"); // exclude Player layer
     Vector3 feetPosition = new Vector3(transform.position.x, transform.position.y - 1f, transform.position.z);
     bool groundedThisFrame = Physics.CheckSphere(feetPosition, 0.1f, layerMask);
@@ -62,7 +62,7 @@ void Update()
         if (Input.GetKey(KeyCode.D)) moveInput = -1f;
         if (Input.GetKey(KeyCode.A)) moveInput = 1f;
 
-            // ✅ Flip character based on direction
+            //Flip character based on direction
     if (Input.GetKey(KeyCode.D))
         transform.localScale = new Vector3(1f, 1f, 1f);
     if (Input.GetKey(KeyCode.A))
