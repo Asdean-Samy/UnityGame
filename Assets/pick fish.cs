@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class Collectible : MonoBehaviour
 {
-    public AudioClip pickupSound; // ✅ drag your sound here in Inspector
+    public AudioClip pickupSound; // drag your song here
 
     void OnTriggerEnter(Collider other)
     {
@@ -10,7 +10,7 @@ public class Collectible : MonoBehaviour
         {
             Debug.Log("Poisson récupéré !");
 
-            // ✅ Play sound at the position of the fish before destroying it
+            // sound at the pick up of the fish
             AudioSource.PlayClipAtPoint(pickupSound, transform.position);
 
             Destroy(gameObject);
